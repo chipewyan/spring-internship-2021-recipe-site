@@ -23,7 +23,7 @@ const RecipePage: NextPage<Props> = ({ recipe }) => {
     return (
         <Layout>
             <h1>{recipe.title}</h1>
-            <img src={recipe.image_url} />
+            <img src={recipe.image_url} width="400" />
             <hr />
             <ul>
                 <li>作者: {recipe.author.user_name}</li>
@@ -36,7 +36,7 @@ const RecipePage: NextPage<Props> = ({ recipe }) => {
                 {recipe.ingredients.map(ingredient => <li>{ingredient.name} ({ingredient.quantity})</li>)}
             </ul>
             <hr />
-            <h2>手順</h2>
+            <h2>作り方</h2>
             <ol>
                 {recipe.steps.map(step => <li>{step}</li>)}
             </ol>
