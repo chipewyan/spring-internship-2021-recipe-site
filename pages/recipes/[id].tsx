@@ -44,7 +44,7 @@ const RecipePage: NextPage<Props> = ({ recipe }) => {
     )
 }
 
-/*
+{/*
 return (
     <div>
       <h1>My Recipe Site</h1>
@@ -79,6 +79,6 @@ return (
     </div>
   );
 };
-*/
+*/}
 
 export default RecipePage;

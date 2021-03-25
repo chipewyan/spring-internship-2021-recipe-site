@@ -1,36 +1,26 @@
-import { getRecipes, getRecipe } from "../lib/recipe";
+import { Recipe } from "../lib/recipe";
 
-// 一個だけ取得
+{/* CREATED BASED ON osyooyu san'S CODE */}
 
-/*
-type FetchRecipe = Recipe;
+type FetchRecipeResponse = Recipe;
 
-typeof で対応できている？
-*/
-
-export async function fetchRecipe(id: number): Promise<typeof getRecipe> {
+export async function fetchRecipe(id: number): Promise<FetchRecipeResponse> {
     const res = await fetch(`https://internship-recipe-api.ckpd.co/recipes/${id}`,
     {
         headers: { 'X-Api-Key':process.env.APIKEY },
     });
-    const recipe = ((await res.json()) as unknown) as typeof getRecipe;
+    const recipe = ((await res.json()) as unknown) as FetchRecipeResponse;
     return recipe;
 }
 
-// 全部取得
-
-/*
-type FetchRecipes = {
+type FetchRecipesResponse = {
     recipes: Recipe[];
   };
-
-typeof で対応できている？
- */
   
-  export async function fetchRecipes(
+export async function fetchRecipes(
     page?: number,
     id?: number[]
-  ): Promise<typeof getRecipes> {
+  ): Promise<FetchRecipesResponse> {
     const qs = new URLSearchParams(
       removeUndefineds({
         page,
@@ -43,7 +33,7 @@ typeof で対応できている？
         headers: { "X-Api-Key":process.env.APIKEY },
       }
     );
-    const recipes = ((await res.json()) as unknown) as typeof getRecipes ; // unknown とか挿入必要？
+    const recipes = ((await res.json()) as unknown) as FetchRecipesResponse ;
     return recipes;
   }
   
@@ -53,14 +43,14 @@ typeof で対応できている？
     const newObj = {};
     Object.keys(obj).forEach((key) => {
       if (obj[key] !== undefined) {
-        newObj[key] = obj[key].toString(); // TODO: KUSO CASTING HERE
+        newObj[key] = obj[key].toString(); 
       }
     });
     return newObj;
   }
 
-// API取得
-/*
+{/* API取得 */}
+{/*
 (async() => {
     const res = await fetch('https://internship-recipe-api.ckpd.co/recipes', {
       headers: { 'X-Api-Key':process.env.APIKEY }
@@ -68,4 +58,4 @@ typeof で対応できている？
     const recipes = await res.json();
     console.log(recipes);
   })();
-*/
+*/}
