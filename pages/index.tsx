@@ -6,9 +6,7 @@ import { GetServerSideProps, NextPage } from "next";
 import { Recipe } from "../lib/recipe";
 import { fetchRecipes } from "../api/api";
 import { RecipeList } from "../components/RecipeList";
-import { Layout } from "../components/Layout";
-import { Header } from "../components/Header"
-{/* import Search from "../components/Search"; *}
+import Layout from "../components/Layout";
 
 {/*
 /* 検索機能 */
